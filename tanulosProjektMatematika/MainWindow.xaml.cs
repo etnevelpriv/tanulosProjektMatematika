@@ -28,5 +28,19 @@ namespace tanulosProjektMatematika
             }
             kiirasTeszt.Text = sb.ToString();
         }
+
+        private void inditasButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (nevTextBox.Text != "")
+            {
+                nevElmentesTeszt.Text = nevTextBox.Text;
+                kezdoGrid.Visibility = Visibility.Hidden;
+                kerdesekGrid.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                MessageBox.Show("Kérlek add meg a neved", "Hibás név", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
     }
 }

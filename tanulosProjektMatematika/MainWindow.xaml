@@ -6,7 +6,20 @@
         xmlns:local="clr-namespace:tanulosProjektMatematika"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <TextBlock x:Name="kiirasTeszt" TextWrapping="Wrap" Text="TextBlock"/>
+    <Grid Background="#ffffcc">
+
+        <Grid x:Name="kezdoGrid">
+            <Label VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0 50 0 0" FontSize="30px" FontFamily="Agency FB" FontWeight="Bold" Content="Matematikai kérdések"/>
+            <TextBlock TextWrapping="Wrap" VerticalAlignment="Top" Width="500px" HorizontalAlignment="Center" Margin="0 100 0 0" FontSize="20px" FontFamily="Agency FB" FontWeight="Bold" Text="Az alkalmazás célja, hogy a felhasználó megdolgoztasssa az agyát néhány matematikai kérdéssel. 10 darab változó nehézségű és típusú matematikai feladvány lesz a képernyőre megjelenítve, amelyekre a megadott lehetőségek közül kell választani. Ha az összes kérdésre válasz érkezett a program kiírja az eredményeket a képernyőre."/>
+            <Label Content="Teljes név"  Width="200" Height="40px" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0 256 0 0" FontSize="15px" FontFamily="Agency FB" FontWeight="Bold"/>
+            <TextBox x:Name="nevTextBox" TextWrapping="Wrap" TextAlignment="Left" VerticalContentAlignment="Center" Width="200" Height="40px" VerticalAlignment="Top" Background="#ccffcc" BorderThickness="2" BorderBrush="#000000" HorizontalAlignment="Center" Margin="0 280 0 0" FontSize="20px" FontFamily="Agency FB" FontWeight="Bold"/>
+            <Button x:Name="inditasButton" Content="Játék Indítása"  Width="200" Height="40px" VerticalAlignment="Bottom" Background="#ccffcc" BorderThickness="2" BorderBrush="#000000" HorizontalAlignment="Right" Margin="0 0 20 20" FontSize="20px" FontFamily="Agency FB" FontWeight="Bold" Click="inditasButton_Click"/>
+        </Grid>
+
+        <Grid x:Name="kerdesekGrid" Visibility="Hidden">
+            <TextBlock x:Name="kiirasTeszt" TextWrapping="Wrap" Text="TextBlock"/>
+            <TextBlock VerticalAlignment="Top" HorizontalAlignment="Right" Text="teszt" x:Name="nevElmentesTeszt"></TextBlock>
+        </Grid>
+
     </Grid>
 </Window>
