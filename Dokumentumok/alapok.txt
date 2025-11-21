@@ -1,0 +1,17 @@
+Rasztovits Levente, Havi Dániel, Borbára Kristóf
+
+Matematika
+
+Kérdés; A válasz; B válasz; C válasz; D válasz; helyes válasz (.txt formátumú 50 soros, növekvő nehézségi sorrend, ai generálta, de több hiba volt benne, így módosításra volt szükség)
+
+Először az alap fájlokat és a beolvasást készítettük el. Majd megjelenítettük az applikációban az összes kérdést egy textblockban. Elkészítettük az üdvözlőoldalt(És az alap dizájnnal foglalkoztunk, amit később tartunk is egységesen). Random kérdés generátort készítettünk, amely randomizált index alapján lekéri az adott indexű elemnek a tagjait(kérdés, válaszok, helyes válasz). Tömböt készítettünk, ahol elmentjük a már egyszer felhasznált indexeket....(Egyelőre itt tartunk) (AI-t a txt fájl készítéséhez használtunk, illetve igénybe vettük a copilot automatikus kitöltés lehetőséget(amennyiben megfelelő kódot ajánlott), illetve néhány specifikus kódrészlethez használtunk dokumentáció/ai segítséget, ahol annak szükségét éreztük)
+
+Felhasználót üdvözli a kezdőoldal, ahol elolvassa az oldal működését és megadja a teljes nevét(kötelező jelleggel) => A program a beolvasott kérdésekből random megjelenít 1db-ot, amire a felhasználó az előre megadott lehetőségek közül választ 1db-ot. => 10 kérdés megválaszolása után a program összegzi és kiírja egyesével a kérdéseket;felhasználó válaszát;helyes választ. Ha a felhasználó helyesen válaszolt, akkor zöld lesz a válasza, ha nem, akkor piros. Az utolsó kérdés megválaszolása után a program elmenti a felhasználó válaszait(kérdéssel és helyes válasszal együtt) egy txt fájlba a nevével együtt. A programot újralehet indítani egy gombbal, ilyenkor törlődnek az addig elmentett kérdések, és a programnak lehetősége van újra feltenni azokat.
+
+Továbbfejlesztési lehetőségek: Több kérdés, több tantárgy,, a kérdéseket szétlehetne bontani nehézségi szint(könnyű, közepes, nehéz) szerint, a felhasználó kiválaszthatná a tantárgyát, és a nehézségi szintet, a kérdések számát. Jobb frontend (mondjuk a mostanival sincsen probléma szerintem). A felhasználónak lehetne akár saját kérdéseket is írni, így később tud majd tanulni. Hibakezelés
+
+
+
+Nehézségek: Fájlbeolvasás/írás(mindig elfelejtem, hogy hogyan kell, a legutolsó dolgozatomat is emiatt nem tudtam befejezni :p), kommunikáció hiánya, ai nagyon béna sokszor.
+
+Tanulság: Időben kezdjük el a feladatot készíteni legközelebb. Jobb kommunikáció és jobb feladatmegosztásra lesz szükség legközelebb. Megkéne tanulni a C# működésének az alapjait, hogy pontosan értük, hogy mit és miért csinálunk. AI-ra nem mindig szabad hagyatkozni, mert sokszor nagyobb kárt okoz, mint hasznot

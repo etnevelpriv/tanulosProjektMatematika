@@ -8,7 +8,7 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid Background="#ffffcc">
 
-        <Grid x:Name="kezdoGrid">
+        <Grid x:Name="kezdoGrid" >
             <Label VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0 50 0 0" FontSize="30px" FontFamily="Agency FB" FontWeight="Bold" Content="Matematikai kérdések"/>
             <TextBlock TextWrapping="Wrap" VerticalAlignment="Top" Width="500px" HorizontalAlignment="Center" Margin="0 100 0 0" FontSize="20px" FontFamily="Agency FB" FontWeight="Bold" Text="Az alkalmazás célja, hogy a felhasználó megdolgoztasssa az agyát néhány matematikai kérdéssel. 10 darab változó nehézségű és típusú matematikai feladvány lesz a képernyőre megjelenítve, amelyekre a megadott lehetőségek közül kell választani. Ha az összes kérdésre válasz érkezett a program kiírja az eredményeket a képernyőre."/>
             <Label Content="Teljes név"  Width="200" Height="40px" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0 256 0 0" FontSize="15px" FontFamily="Agency FB" FontWeight="Bold"/>
@@ -17,9 +17,19 @@
         </Grid>
 
         <Grid x:Name="kerdesekGrid" Visibility="Hidden">
-            <TextBlock x:Name="kiirasTeszt" TextWrapping="Wrap" Text="TextBlock"/>
+            <TextBlock x:Name="kerdesText" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0 50 0 0" FontSize="40px" FontFamily="Agency FB" FontWeight="Bold" TextWrapping="Wrap" Text="Random teszt kérdes?"/>
+            <Button x:Name="valaszButtonA" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0 150 150 0" Width="100px" FontSize="30px" FontFamily="Agency FB" FontWeight="Bold" Background="#ccffcc" BorderThickness="2" BorderBrush="#000000" Content="432" Click="valaszButtonA_Click"/>
+            <Button x:Name="valaszButtonB" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="150 150 0 0" Width="100px" FontSize="30px" FontFamily="Agency FB" FontWeight="Bold" Background="#ccffcc" BorderThickness="2" BorderBrush="#000000" Content="542" Click="valaszButtonB_Click"/>
+            <Button x:Name="valaszButtonC" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0 250 150 0" Width="100px" FontSize="30px" FontFamily="Agency FB" FontWeight="Bold" Background="#ccffcc" BorderThickness="2" BorderBrush="#000000" Content="342" Click="valaszButtonC_Click"/>
+            <Button x:Name="valaszButtonD" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="150 250 0 0" Width="100px" FontSize="30px" FontFamily="Agency FB" FontWeight="Bold" Background="#ccffcc" BorderThickness="2" BorderBrush="#000000" Content="420" Click="valaszButtonD_Click"/>
+            <Button x:Name="kovetkezoKerdesButton" Content="Következő kérdés"  Width="200" Height="40px" VerticalAlignment="Bottom" Cursor="Arrow" Background="#ccffcc" BorderThickness="2" BorderBrush="#000000" HorizontalAlignment="Right" Margin="0 0 20 20" FontSize="20px" FontFamily="Agency FB" FontWeight="Bold" Click="kovetkezoKerdesButton_Click"/>
+
+
             <TextBlock VerticalAlignment="Top" HorizontalAlignment="Right" Text="teszt" x:Name="nevElmentesTeszt"></TextBlock>
         </Grid>
 
+        <Grid x:Name="osszegzesGrid" Visibility="Hidden">
+            <TextBlock x:Name="tesztKiiras">Teszt osszegzes kiirasa</TextBlock>
+        </Grid>
     </Grid>
 </Window>
