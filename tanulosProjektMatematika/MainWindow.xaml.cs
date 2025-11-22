@@ -46,7 +46,7 @@ namespace tanulosProjektMatematika
                 felhasznaloNev = nevTextBox.Text;
                 kezdoGrid.Visibility = Visibility.Hidden;
                 kerdesekGrid.Visibility = Visibility.Visible;
-                elmentendoSorok.Add(felhasznaloNev);
+                elmentendoSorok.Add($"{felhasznaloNev}:");
                 elmentendoSorok.Add("Kérdés | Felhasználó válasza | Helyes válasz");
                 randomKerdesKiiras();
             }
@@ -240,6 +240,10 @@ namespace tanulosProjektMatematika
                 }
             }
             tesztKiiras.Text = sb.ToString();
+            elmentendoSorok.Add("*************************************************************************************");
+
+            var iro = new fajlIras();
+            string eredmeny = iro.Mentes(elmentendoSorok);
         }
     }
 }
