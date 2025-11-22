@@ -18,28 +18,54 @@ namespace tanulosProjektMatematika
     public partial class MainWindow : Window
     {
         private List<int> hasznaltIndexek = new List<int>();
+        private List<string> feltettKerdesek = new List<string>();
         private List<string> adottValaszok = new List<string>();
+        private List<string> helyesValaszok = new List<string>();
+        private List<string> elmentendoSorok = new List<string>();
         private string felhasznaloNev;
         private int kerdesSzama = 0;
         private bool advaVanValasz;
         private string kivalasztottValasz;
         private string helyesValasz;
+        private readonly Brush alapSzin = (Brush)new BrushConverter().ConvertFrom("#CCFFCC");
+        private readonly Brush kivalasztottSzin = (Brush)new BrushConverter().ConvertFrom("#CCCFFC");
+        private readonly Brush gombEngedelyezveSzin = (Brush)new BrushConverter().ConvertFrom("#CCFFCC");
+        private readonly Brush gombNemEngedelyezveSzin = (Brush)new BrushConverter().ConvertFrom("#888888");
+        private Button kivalasztottGomb;
+
         public MainWindow()
         {
             InitializeComponent();
-            randomKerdesKiiras();
+        }
+
+        private void inditasButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (nevTextBox.Text != "")
+            {
+                nevElmentesTeszt.Text = nevTextBox.Text;
+                felhasznaloNev = nevTextBox.Text;
+                kezdoGrid.Visibility = Visibility.Hidden;
+                kerdesekGrid.Visibility = Visibility.Visible;
+                elmentendoSorok.Add(felhasznaloNev);
+                elmentendoSorok.Add("Kérdés | Felhasználó válasza | Helyes válasz");
+                randomKerdesKiiras();
+            }
+            else
+            {
+                MessageBox.Show("Kérlek add meg a neved", "Hibás név", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void randomKerdesKiiras()
         {
-            if (kerdesSzama == 11)
+            if (kerdesSzama == 10)
             {
-                kerdesekGrid.Visibility = Visibility.Hidden;
-                osszegzesGrid.Visibility = Visibility.Visible;
+                osszegzoGridMegjelenites();
             }
             else
             {
-                if (kerdesSzama == 10)
+                nincsValaszAdas();
+                if (kerdesSzama == 9)
                 {
                     kovetkezoKerdesButton.Content = "Válaszok beküldése";
                 }
@@ -62,30 +88,87 @@ namespace tanulosProjektMatematika
                 valaszButtonD.Content = be.kerdesek[i].getValaszD();
                 helyesValasz = be.kerdesek[i].getValaszHelyes();
                 kerdesSzama++;
+
+                advaVanValasz = false;
             }
         }
 
-        private void inditasButton_Click(object sender, RoutedEventArgs e)
+        private void kovetkezoKerdesButtonAllapot()
         {
-            if (nevTextBox.Text != "")
+            if (advaVanValasz)
             {
-                nevElmentesTeszt.Text = nevTextBox.Text;
-                felhasznaloNev = nevTextBox.Text;
-                kezdoGrid.Visibility = Visibility.Hidden;
-                kerdesekGrid.Visibility = Visibility.Visible;
+                kovetkezoKerdesButton.Background = gombEngedelyezveSzin;
+                kovetkezoKerdesButton.Cursor = Cursors.Arrow;
             }
             else
             {
-                MessageBox.Show("Kérlek add meg a neved", "Hibás név", MessageBoxButton.OK, MessageBoxImage.Error);
+                kovetkezoKerdesButton.Background = gombNemEngedelyezveSzin;
+                kovetkezoKerdesButton.Cursor= Cursors.Cross;
             }
+        }
+
+        private void valaszAdas(Button gomb)
+        {
+            advaVanValasz = true;
+            kivalasztottGomb = gomb;
+            kivalasztottValasz = gomb.Content.ToString();
+            if (kivalasztottGomb == valaszButtonA)
+            {
+                valaszButtonA.Background = kivalasztottSzin;
+            }
+            else
+            {
+                valaszButtonA.Background = alapSzin;
+            }
+            if (kivalasztottGomb == valaszButtonB)
+            {
+                valaszButtonB.Background = kivalasztottSzin;
+            }
+            else
+            {
+                valaszButtonB.Background = alapSzin;
+            }
+            if (kivalasztottGomb == valaszButtonC)
+            {
+                valaszButtonC.Background = kivalasztottSzin;
+            }
+            else
+            {
+                valaszButtonC.Background = alapSzin;
+            }
+            if (kivalasztottGomb == valaszButtonD)
+            {
+                valaszButtonD.Background = kivalasztottSzin;
+            }
+            else
+            {
+                valaszButtonD.Background = alapSzin;
+            }
+            kovetkezoKerdesButtonAllapot();
+        }
+
+        private void nincsValaszAdas()
+        {
+            advaVanValasz = false;
+            kivalasztottGomb = null;
+            kivalasztottValasz = "";
+            valaszButtonA.Background = alapSzin;
+            valaszButtonB.Background= alapSzin;
+            valaszButtonC.Background= alapSzin;
+            valaszButtonD.Background= alapSzin;
+            kovetkezoKerdesButtonAllapot();
         }
 
         private void kovetkezoKerdesButton_Click(object sender, RoutedEventArgs e)
         {
             if (advaVanValasz)
             {
-                adottValaszok.Add($"{kerdesText.Text} | {kivalasztottValasz} | {helyesValasz}");
+                feltettKerdesek.Add(kerdesText.Text);
+                adottValaszok.Add(kivalasztottValasz);
+                helyesValaszok.Add(helyesValasz);
+                elmentendoSorok.Add($"{kerdesText.Text} | {kivalasztottValasz} | {helyesValasz}");
                 randomKerdesKiiras();
+
             }
             else
             {
@@ -94,106 +177,62 @@ namespace tanulosProjektMatematika
         }
         private void valaszButtonA_Click(object sender, RoutedEventArgs e)
         {
-            if (advaVanValasz)
+            if (kivalasztottGomb == valaszButtonA)
             {
-                advaVanValasz = false;
-                valaszButtonA.Background = (Brush)new BrushConverter().ConvertFrom("#CCFFCC");
-                valaszButtonB.Background = (Brush)new BrushConverter().ConvertFrom("#CCFFCC");
-                valaszButtonC.Background = (Brush)new BrushConverter().ConvertFrom("#CCFFCC");
-                valaszButtonD.Background = (Brush)new BrushConverter().ConvertFrom("#CCFFCC");
-                kovetkezoKerdesButton.Background = (Brush)new BrushConverter().ConvertFrom("#888888");;
-                kovetkezoKerdesButton.Cursor = Cursors.Cross;
-                kivalasztottValasz = "";
+                nincsValaszAdas();
             }
             else
             {
-                advaVanValasz = true;
-                valaszButtonA.Background = (Brush)new BrushConverter().ConvertFrom("#CCCFFC");;
-                valaszButtonB.Background = (Brush)new BrushConverter().ConvertFrom("#CCFFCC");
-                valaszButtonC.Background = (Brush)new BrushConverter().ConvertFrom("#CCFFCC");
-                valaszButtonD.Background = (Brush)new BrushConverter().ConvertFrom("#CCFFCC");
-                kovetkezoKerdesButton.Background = (Brush)new BrushConverter().ConvertFrom("#CCFFCC");
-                kovetkezoKerdesButton.Cursor = Cursors.Arrow;
-                kivalasztottValasz = valaszButtonA.Content.ToString();
+                valaszAdas(valaszButtonA);
             }
         }
 
         private void valaszButtonB_Click(object sender, RoutedEventArgs e)
         {
-            if (advaVanValasz)
+            if (kivalasztottGomb == valaszButtonB)
             {
-                advaVanValasz = false;
-                valaszButtonA.Background = (Brush)new BrushConverter().ConvertFrom("#CCFFCC");
-                valaszButtonB.Background = (Brush)new BrushConverter().ConvertFrom("#CCFFCC");
-                valaszButtonC.Background = (Brush)new BrushConverter().ConvertFrom("#CCFFCC");
-                valaszButtonD.Background = (Brush)new BrushConverter().ConvertFrom("#CCFFCC");
-                kovetkezoKerdesButton.Background = (Brush)new BrushConverter().ConvertFrom("#888888");;
-                kovetkezoKerdesButton.Cursor = Cursors.Cross;
-                kivalasztottValasz = "";
+                nincsValaszAdas();
             }
             else
             {
-                advaVanValasz = true;
-                valaszButtonA.Background = (Brush)new BrushConverter().ConvertFrom("#CCFFCC");
-                valaszButtonB.Background = (Brush)new BrushConverter().ConvertFrom("#CCCFFC");;
-                valaszButtonC.Background = (Brush)new BrushConverter().ConvertFrom("#CCFFCC");
-                valaszButtonD.Background = (Brush)new BrushConverter().ConvertFrom("#CCFFCC");
-                kovetkezoKerdesButton.Background = (Brush)new BrushConverter().ConvertFrom("#CCFFCC");
-                kovetkezoKerdesButton.Cursor = Cursors.Arrow;
-                kivalasztottValasz = valaszButtonB.Content.ToString();
+                valaszAdas(valaszButtonB);
             }
         }
 
         private void valaszButtonC_Click(object sender, RoutedEventArgs e)
         {
-            if (advaVanValasz)
+            if (kivalasztottGomb == valaszButtonC)
             {
-                advaVanValasz = false;
-                valaszButtonA.Background = (Brush)new BrushConverter().ConvertFrom("#CCFFCC");
-                valaszButtonB.Background = (Brush)new BrushConverter().ConvertFrom("#CCFFCC");
-                valaszButtonC.Background = (Brush)new BrushConverter().ConvertFrom("#CCFFCC");
-                valaszButtonD.Background = (Brush)new BrushConverter().ConvertFrom("#CCFFCC");
-                kovetkezoKerdesButton.Background = (Brush)new BrushConverter().ConvertFrom("#888888");;
-                kovetkezoKerdesButton.Cursor = Cursors.Cross;
-                kivalasztottValasz = "";
+                nincsValaszAdas();
             }
             else
             {
-                advaVanValasz = true;
-                valaszButtonA.Background = (Brush)new BrushConverter().ConvertFrom("#CCFFCC");
-                valaszButtonB.Background = (Brush)new BrushConverter().ConvertFrom("#CCFFCC");
-                valaszButtonC.Background = (Brush)new BrushConverter().ConvertFrom("#CCCFFC");;
-                valaszButtonD.Background = (Brush)new BrushConverter().ConvertFrom("#CCFFCC");
-                kovetkezoKerdesButton.Background = (Brush)new BrushConverter().ConvertFrom("#CCFFCC");
-                kovetkezoKerdesButton.Cursor = Cursors.Arrow;
-                kivalasztottValasz = valaszButtonC.Content.ToString();
+                valaszAdas(valaszButtonC);
             }
         }
 
         private void valaszButtonD_Click(object sender, RoutedEventArgs e)
         {
-            if (advaVanValasz)
+            if (kivalasztottGomb == valaszButtonD)
             {
-                advaVanValasz = false;
-                valaszButtonA.Background = (Brush)new BrushConverter().ConvertFrom("#CCFFCC");
-                valaszButtonB.Background = (Brush)new BrushConverter().ConvertFrom("#CCFFCC");
-                valaszButtonC.Background = (Brush)new BrushConverter().ConvertFrom("#CCFFCC");
-                valaszButtonD.Background = (Brush)new BrushConverter().ConvertFrom("#CCFFCC");
-                kovetkezoKerdesButton.Background = (Brush)new BrushConverter().ConvertFrom("#888888");;
-                kovetkezoKerdesButton.Cursor = Cursors.Cross;
-                kivalasztottValasz = "";
+                nincsValaszAdas();
             }
             else
             {
-                advaVanValasz = true;
-                valaszButtonA.Background = (Brush)new BrushConverter().ConvertFrom("#CCFFCC");
-                valaszButtonB.Background = (Brush)new BrushConverter().ConvertFrom("#CCFFCC");
-                valaszButtonC.Background = (Brush)new BrushConverter().ConvertFrom("#CCFFCC");
-                valaszButtonD.Background = (Brush)new BrushConverter().ConvertFrom("#CCCFFC");;
-                kovetkezoKerdesButton.Background = (Brush)new BrushConverter().ConvertFrom("#CCFFCC");
-                kovetkezoKerdesButton.Cursor = Cursors.Arrow;
-                kivalasztottValasz = valaszButtonD.Content.ToString();
+                valaszAdas(valaszButtonD);
             }
+        }
+        private void osszegzoGridMegjelenites()
+        {
+            kerdesekGrid.Visibility = Visibility.Hidden;
+            osszegzesGrid.Visibility = Visibility.Visible;
+            
+            var sb = new StringBuilder();
+            for (int i = 0; i < adottValaszok.Count; i++)
+            {
+                sb.AppendLine($"{i + 1}. kérdés. Kérdés: {feltettKerdesek[i]} Felhasználó válasza: {adottValaszok[i]}. Helyes válasz: {helyesValaszok[i]}");
+            }
+            tesztKiiras.Text = sb.ToString();
         }
     }
 }
