@@ -42,7 +42,6 @@ namespace tanulosProjektMatematika
         {
             if (nevTextBox.Text != "")
             {
-                nevElmentesTeszt.Text = nevTextBox.Text;
                 felhasznaloNev = nevTextBox.Text;
                 kezdoGrid.Visibility = Visibility.Hidden;
                 kerdesekGrid.Visibility = Visibility.Visible;
@@ -226,12 +225,14 @@ namespace tanulosProjektMatematika
         {
             kerdesekGrid.Visibility = Visibility.Hidden;
             osszegzesGrid.Visibility = Visibility.Visible;
-            
+
+            int helyesValaszokSzama = 0;
             var sb = new StringBuilder();
             for (int i = 0; i < adottValaszok.Count; i++)
             {
                 if (adottValaszok[i] == helyesValaszok[i])
                 {
+                    helyesValaszokSzama++;
                     sb.AppendLine($"{i + 1}. kérdés. Kérdés: {feltettKerdesek[i]} Felhasználó válasza: {adottValaszok[i]}. Helyes válasz: {helyesValaszok[i]} ✅");
                 }
                 else
@@ -239,7 +240,9 @@ namespace tanulosProjektMatematika
                     sb.AppendLine($"{i + 1}. kérdés. Kérdés: {feltettKerdesek[i]} Felhasználó válasza: {adottValaszok[i]}. Helyes válasz: {helyesValaszok[i]} ❌");
                 }
             }
-            tesztKiiras.Text = sb.ToString();
+            eredmenyekTextBlock.Text = sb.ToString();
+            helyesEredmenyekTextBlock.Text = $"10/{helyesValaszokSzama.ToString()}";
+            elmentendoSorok.Add($"Helyes válaszok száma: {helyesValaszokSzama}");
             elmentendoSorok.Add("*************************************************************************************");
 
             var iro = new fajlIras();

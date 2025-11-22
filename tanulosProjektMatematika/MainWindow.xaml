@@ -23,14 +23,13 @@
             <Button x:Name="valaszButtonC" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0 250 150 0" Width="100px" FontSize="30px" FontFamily="Agency FB" FontWeight="Bold" Background="#ccffcc" BorderThickness="2" BorderBrush="#000000" Content="342" Click="valaszButtonC_Click"/>
             <Button x:Name="valaszButtonD" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="150 250 0 0" Width="100px" FontSize="30px" FontFamily="Agency FB" FontWeight="Bold" Background="#ccffcc" BorderThickness="2" BorderBrush="#000000" Content="420" Click="valaszButtonD_Click"/>
             <Button x:Name="kovetkezoKerdesButton" Content="Következő kérdés"  Width="200" Height="40px" VerticalAlignment="Bottom" Cursor="Arrow" Background="#ccffcc" BorderThickness="2" BorderBrush="#000000" HorizontalAlignment="Right" Margin="0 0 20 20" FontSize="20px" FontFamily="Agency FB" FontWeight="Bold" Click="kovetkezoKerdesButton_Click"/>
-
-
-            <TextBlock VerticalAlignment="Top" HorizontalAlignment="Right" Text="teszt" x:Name="nevElmentesTeszt"></TextBlock>
         </Grid>
 
         <Grid x:Name="osszegzesGrid" Visibility="Hidden">
             <Label VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0 50 0 0" FontSize="30px" FontFamily="Agency FB" FontWeight="Bold" Content="Feladatok összegzése"/>
-            <TextBlock x:Name="tesztKiiras" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="20 100 0 0" FontSize="15px" FontFamily="Agency FB" FontWeight="Bold" Text="Példa kérdés? | 200 | 300"></TextBlock>
+            <TextBlock x:Name="eredmenyekTextBlock" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="20 100 0 0" FontSize="15px" FontFamily="Agency FB" FontWeight="Bold" Text="Példa kérdés? | 200 | 300"></TextBlock>
+            <TextBlock VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0 100 50 0" FontSize="15px" FontFamily="Agency FB" FontWeight="Bold" Text="Helyes eredmények száma:"></TextBlock>
+            <TextBlock x:Name="helyesEredmenyekTextBlock" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0 100 20 0" FontSize="15px" FontFamily="Agency FB" FontWeight="Bold" Text="10/10"></TextBlock>
         </Grid>
     </Grid>
 </Window>
