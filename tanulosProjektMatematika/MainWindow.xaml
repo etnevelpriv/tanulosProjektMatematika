@@ -8,7 +8,7 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid Background="#ffffcc">
 
-        <Grid x:Name="kezdoGrid" >
+        <Grid x:Name="kezdoGrid">
             <Label VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0 50 0 0" FontSize="30px" FontFamily="Agency FB" FontWeight="Bold" Content="Matematikai kérdések"/>
             <TextBlock TextWrapping="Wrap" VerticalAlignment="Top" Width="500px" HorizontalAlignment="Center" Margin="0 100 0 0" FontSize="20px" FontFamily="Agency FB" FontWeight="Bold" Text="Az alkalmazás célja, hogy a felhasználó megdolgoztasssa az agyát néhány matematikai kérdéssel. 10 darab változó nehézségű és típusú matematikai feladvány lesz a képernyőre megjelenítve, amelyekre a megadott lehetőségek közül kell választani. Ha az összes kérdésre válasz érkezett a program kiírja az eredményeket a képernyőre."/>
             <Label Content="Teljes név"  Width="200" Height="40px" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0 256 0 0" FontSize="15px" FontFamily="Agency FB" FontWeight="Bold"/>
@@ -29,7 +29,8 @@
         </Grid>
 
         <Grid x:Name="osszegzesGrid" Visibility="Hidden">
-            <TextBlock x:Name="tesztKiiras" Foreground="Green">Teszt osszegzes kiirasa</TextBlock>
+            <Label VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0 50 0 0" FontSize="30px" FontFamily="Agency FB" FontWeight="Bold" Content="Feladatok összegzése"/>
+            <TextBlock x:Name="tesztKiiras" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="20 100 0 0" FontSize="15px" FontFamily="Agency FB" FontWeight="Bold" Text="Példa kérdés? | 200 | 300"></TextBlock>
         </Grid>
     </Grid>
 </Window>

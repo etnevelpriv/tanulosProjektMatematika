@@ -230,7 +230,14 @@ namespace tanulosProjektMatematika
             var sb = new StringBuilder();
             for (int i = 0; i < adottValaszok.Count; i++)
             {
-                sb.AppendLine($"{i + 1}. kérdés. Kérdés: {feltettKerdesek[i]} Felhasználó válasza: {adottValaszok[i]}. Helyes válasz: {helyesValaszok[i]}");
+                if (adottValaszok[i] == helyesValaszok[i])
+                {
+                    sb.AppendLine($"{i + 1}. kérdés. Kérdés: {feltettKerdesek[i]} Felhasználó válasza: {adottValaszok[i]}. Helyes válasz: {helyesValaszok[i]} ✅");
+                }
+                else
+                {
+                    sb.AppendLine($"{i + 1}. kérdés. Kérdés: {feltettKerdesek[i]} Felhasználó válasza: {adottValaszok[i]}. Helyes válasz: {helyesValaszok[i]} ❌");
+                }
             }
             tesztKiiras.Text = sb.ToString();
         }
