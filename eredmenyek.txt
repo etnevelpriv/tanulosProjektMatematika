@@ -1,0 +1,67 @@
+﻿cds
+Kérdés | Felhasználó válasza | Helyes válasz
+Mennyi 14 * 6? |  21 |  84
+Mennyi a 784 négyzetgyöke? |  28 |  28
+Mennyi 108 + 72? |  185 |  180
+Mennyi 37^2? |  1373 |  1369
+Mennyi 27^2? |  729 |  729
+Mennyi 3 + 2? |  5 |  5
+Mennyi 93 + 62? |  150 |  155
+Mennyi a 169 négyzetgyöke? |  14 |  13
+Mennyi 52^2? |  2703 |  2704
+Mennyi a 2x^2 - 3x + 1 értéke, ha x = 4? |  26 |  21
+*************************************************************************************
+Levente
+Kérdés | Felhasználó válasza | Helyes válasz
+Mennyi 27^2? |  728 |  729
+Mennyi 84 * 41? |  1722 |  3444
+Mennyi a 64 négyzetgyöke? |  8 |  8
+Mennyi 22^2? |  481 |  484
+Mennyi 47^2? |  2208 |  2209
+Mennyi a 1089 négyzetgyöke? |  66 |  33
+Mennyi 138 + 92? |  322 |  230
+Mennyi 24 * 11? |  36 |  264
+Mennyi a 2809 négyzetgyöke? |  106 |  53
+Mennyi 32^2? |  1021 |  1024
+*************************************************************************************
+TesztNév:
+Kérdés | Felhasználó válasza | Helyes válasz
+Mennyi 17^2? |  288 |  289
+Mennyi a 324 négyzetgyöke? |  18 |  18
+Mennyi 4 * 1? |  2 |  4
+Mennyi 22^2? |  484 |  484
+Mennyi 63 + 42? |  147 |  105
+Mennyi 108 + 72? |  170 |  180
+Mennyi 3 + 2? |  4 |  5
+Mennyi 7^2? |  49 |  49
+Mennyi 47^2? |  2209 |  2209
+Mennyi a 2x^2 - 3x + 1 értéke, ha x = 19? |  663 |  666
+*************************************************************************************
+100:
+Kérdés | Felhasználó válasza | Helyes válasz
+Mennyi 34 * 16? |  51 |  544
+Mennyi a 2x^2 - 3x + 1 értéke, ha x = 26? |  1280 |  1275
+Mennyi 4 * 1? |  4 |  4
+Mennyi a 2x^2 - 3x + 1 értéke, ha x = 11? |  207 |  210
+Mennyi a 2x^2 - 3x + 1 értéke, ha x = 14? |  356 |  351
+Mennyi a 2809 négyzetgyöke? |  52 |  53
+Mennyi 17^2? |  289 |  289
+Mennyi 108 + 72? |  185 |  180
+Mennyi a 169 négyzetgyöke? |  14 |  13
+Mennyi a 784 négyzetgyöke? |  28 |  28
+Helyes válaszok száma: 3
+*************************************************************************************
+hicbasc:
+Kérdés | Felhasználó válasza | Helyes válasz
+Mennyi a 2x^2 - 3x + 1 értéke, ha x = 11? |  210 |  210
+Mennyi a 2x^2 - 3x + 1 értéke, ha x = 14? |  351 |  351
+Mennyi a 2x^2 - 3x + 1 értéke, ha x = 6? |  55 |  55
+Mennyi 48 + 32? |  80 |  80
+Mennyi 123 + 82? |  205 |  205
+Mennyi a 1089 négyzetgyöke? |  33 |  33
+Mennyi 32^2? |  1028 |  1024
+Mennyi a 2x^2 - 3x + 1 értéke, ha x = 19? |  666 |  666
+Mennyi 64 * 31? |  1984 |  1984
+Mennyi 18 + 12? |  30 |  30
+Helyes válaszok száma: 9
+*************************************************************************************
